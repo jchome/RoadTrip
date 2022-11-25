@@ -1,0 +1,16 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_etape.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE rtpetp (
+	etpidetp integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	etplbnom varchar(255) NOT NULL , 
+	etpnulat float(20) NOT NULL , 
+	etpnulon float(20) NOT NULL , 
+	etpfgarr char(1) NOT NULL , 
+	etpiditi integer NOT NULL 
+);
+
+
+

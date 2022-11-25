@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="rtpini" displayName="Itineraire" obName="Itineraire">
+	<description>Itinéraires d'un voyage</description>
+	<attribute id="itiiditi" name="Identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description>identifiant interne</description>
+	</attribute>
+	<attribute id="idilbnom" name="Nom" nullable="NO" type="varchar(255)" >
+		<description>Nom de l'itinéraire</description>
+	</attribute>
+	<attribute id="itiidvoy" name="Voyage" nullable="NO" type="int" referencedObject="Voyage" access="default" display="voylbnom" >
+		<description>Lien vers le voyage</description>
+	</attribute>
+</object>

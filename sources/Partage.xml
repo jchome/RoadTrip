@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="rtppar" displayName="Partage" obName="Partage">
+	<description>Partages des voyages d'un utilisateur</description>
+	<attribute id="paridpar" name="identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description>identifiant interne</description>
+	</attribute>
+	<attribute id="paridvoy" name="Voyage partagé" nullable="NO" type="int" referencedObject="Voyage" access="default" display="voylbnom" >
+		<description>Lien vers le voyage</description>
+	</attribute>
+	<attribute id="paridami" name="Ami" nullable="NO" type="int" referencedObject="Utilisateur" access="default" display="usrlbnom" >
+		<description>Lien vers l'utilisateur ami</description>
+	</attribute>
+</object>

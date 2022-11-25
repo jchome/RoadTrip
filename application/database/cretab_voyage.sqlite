@@ -1,0 +1,13 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_voyage.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE rtpvoy (
+	voyidvoy integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	voylbnom varchar(255) NOT NULL , 
+	voyidusr integer NOT NULL 
+);
+
+
+

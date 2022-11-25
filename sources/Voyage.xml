@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="rtpvoy" displayName="Voyage" obName="Voyage">
+	<description>Voyages créés par les utilisateurs</description>
+	<attribute id="voyidvoy" name="identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description>identifiant interne</description>
+	</attribute>
+	<attribute id="voylbnom" name="Nom" nullable="NO" type="varchar(255)" >
+		<description>Nom du voyage</description>
+	</attribute>
+	<attribute id="voyidusr" name="Auteur" nullable="NO" type="int" referencedObject="Utilisateur" access="ajax" display="usrlbnom" >
+		<description>Lien vers l'utilisateur</description>
+	</attribute>
+</object>

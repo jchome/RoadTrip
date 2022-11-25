@@ -1,0 +1,13 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_partage.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE rtppar (
+	paridpar integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	paridvoy integer NOT NULL , 
+	paridami integer NOT NULL 
+);
+
+
+

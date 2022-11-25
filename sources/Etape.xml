@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="rtpetp" displayName="Etape" obName="Etape">
+	<description>Point de passage d'un itinéraire</description>
+	<attribute id="etpidetp" name="Identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description>identifiant interne</description>
+	</attribute>
+	<attribute id="etplbnom" name="Nom" nullable="NO" type="varchar(255)" >
+		<description>Nom de l'étape</description>
+	</attribute>
+	<attribute id="etpnulat" name="Latitude" nullable="NO" type="float(20)" >
+		<description>Latidude de la coordonnée</description>
+	</attribute>
+	<attribute id="etpnulon" name="Longitude" nullable="NO" type="float(20)" >
+		<description>Longitude de la coordonnée</description>
+	</attribute>
+	<attribute id="etpfgarr" name="Arrêt" nullable="NO" type="flag(Oui)" >
+		<description>Est-ce un point d'arrêt (ou un simple point de passage)</description>
+	</attribute>
+	<attribute id="etpiditi" name="Itinéraire" nullable="NO" type="int" referencedObject="Itineraire" access="default" display="idilbnom" >
+		<description>Lien vers l'itinéraire</description>
+	</attribute>
+</object>

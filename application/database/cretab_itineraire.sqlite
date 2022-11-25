@@ -1,0 +1,13 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_itineraire.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE rtpini (
+	itiiditi integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	idilbnom varchar(255) NOT NULL , 
+	itiidvoy integer NOT NULL 
+);
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="rtpusr" displayName="Utilisateur" obName="User">
+	<description>Utilisateurs de l'application</description>
+	<attribute id="usridusr" name="identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description>identifiant interne</description>
+	</attribute>
+	<attribute id="usrlbnom" name="Nom" nullable="NO" type="varchar(255)" >
+		<description>Nom de l'utilisateur</description>
+	</attribute>
+	<attribute id="usrlblgn" name="Login" nullable="NO" type="varchar(32)" >
+		<description>Identifiant de connexion</description>
+	</attribute>
+	<attribute id="usrlbpwd" name="Mot de passe" nullable="NO" type="password(32)" >
+		<description>Mot de passe de connexion</description>
+	</attribute>
+	<attribute id="usrlbmai" name="Email" nullable="NO" type="varchar(255)" >
+		<description>Adresse e-mail de contact</description>
+	</attribute>
+	<attribute id="usrfipho" name="Photo" nullable="YES" type="file(255)" >
+		<description>Image, photo ou avatar</description>
+	</attribute>
+</object>

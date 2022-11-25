@@ -1,0 +1,16 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_user.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE rtpusr (
+	usridusr integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	usrlbnom varchar(255) NOT NULL , 
+	usrlblgn varchar(32) NOT NULL , 
+	usrlbpwd varchar(32) NOT NULL , 
+	usrlbmai varchar(255) NOT NULL , 
+	usrfipho varchar(4000) 
+);
+
+
+
