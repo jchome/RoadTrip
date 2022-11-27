@@ -29,11 +29,11 @@ class ItineraireService extends DAOService{
 		return $model;
 	}
 	
-	public function getUnique($db, $value){
+	public function getUnique($db, $value, $dummy = ""){
 		return parent::getUnique($db, 'itiiditi', $value);
 	}
 	
-	public function deleteByKey($db, $value){
+	public function deleteByKey($db, $value, $dummy = ""){
 		return parent::deleteByKey($db, 'itiiditi', $value);
 	}
 

@@ -14,7 +14,7 @@ class MY_Lang extends CI_Lang{
 	 * @access public
 	 * @return mixed false if not found or the language string
 	 */
-	public function line(){
+	public function line($line = ""){
 		//get the arguments passed to the function
 		$args = func_get_args();
 

@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = "sql.free.fr";
-$db['default']['username'] = "jc.specs";
-$db['default']['password'] = "lolotte0";
-$db['default']['database'] = "jc_specs";
-$db['default']['dbdriver'] = "mysql";
+$db['default']['hostname'] = "localhost";
+$db['default']['username'] = "root";
+$db['default']['password'] = "root";
+$db['default']['database'] = "roadtrip";
+$db['default']['dbdriver'] = "mysqli";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;

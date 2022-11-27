@@ -25,11 +25,11 @@ class PartageService extends DAOService{
 		return $model;
 	}
 	
-	public function getUnique($db, $value){
+	public function getUnique($db, $value, $dummy = ""){
 		return parent::getUnique($db, 'paridpar', $value);
 	}
 	
-	public function deleteByKey($db, $value){
+	public function deleteByKey($db, $value, $dummy = ""){
 		return parent::deleteByKey($db, 'paridpar', $value);
 	}
 

@@ -13,7 +13,6 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function index(){
-		
 		$formSend = $this->input->post('formSend');
 
 		// on est déjà connecté et on repart sur l'accueil
@@ -68,6 +67,7 @@ class Welcome extends CI_Controller {
 				
 			}
 		}
+		
 	}
 	
 	

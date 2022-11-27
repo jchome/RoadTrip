@@ -25,11 +25,11 @@ class VoyageService extends DAOService{
 		return $model;
 	}
 	
-	public function getUnique($db, $value){
+	public function getUnique($db, $value, $dummy = ""){
 		return parent::getUnique($db, 'voyidvoy', $value);
 	}
 	
-	public function deleteByKey($db, $value){
+	public function deleteByKey($db, $value, $dummy = ""){
 		return parent::deleteByKey($db, 'voyidvoy', $value);
 	}
 

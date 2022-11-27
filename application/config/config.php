@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://jc.specs.free.fr/RoadTrip/';
+$config['base_url']	= 'http://localhost/RoadTrip/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'This is my secure encryption key';
+$config['encryption_key'] = 'This is encryption key';
 
 /*
 |--------------------------------------------------------------------------
