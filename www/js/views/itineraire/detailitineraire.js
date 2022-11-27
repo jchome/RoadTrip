@@ -51,6 +51,26 @@ var apiKey = 'YOUR_API_KEY';
 var map;
 
 function initialize() {
+
+	// Par défaut, centrer sur Paris
+	var lat = 48.852969;
+	var lon = 2.349903;
+	var macarte = null;
+	// Servira à stocker les groupes de marqueurs
+	var markerClusters; 
+	macarte = L.map('map-canvas').setView([lat, lon], 11);
+
+	// Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+	L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+		// Il est toujours bien de laisser le lien vers la source des données
+		attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+		minZoom: 1,
+		maxZoom: 20
+	}).addTo(macarte);
+	markerClusters = L.markerClusterGroup();
+
+
+
 	var depart = null;;
 	var arrivee = null;
 	for (var key in points){
@@ -59,14 +79,8 @@ function initialize() {
 		}
 		arrivee = key;
 	}
-	/*
-	if(depart == null){
-		$('#map-container').hide();
-		return;
-	}*/
 	
-	
-	var directionsDisplay = new google.maps.DirectionsRenderer();
+	/*var directionsDisplay = new google.maps.DirectionsRenderer();
 	var directionsService = new google.maps.DirectionsService();
 	var mapOptions = {
 		zoom : 9,
@@ -80,11 +94,30 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('map-canvas'),
 			mapOptions);
 	directionsDisplay.setMap(map);
+	*/
 	
-	var waypoints = [];
+	//var waypoints = [];
 	var i=0;
+	var markers = [];
+	var defaultIcon = L.icon({ 
+		iconUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png', 
+		iconSize: [18, 30], 
+		iconAnchor: [9, 30], 
+		popupAnchor: [0, -20] 
+	});
+
+	var latlngs = [];
+	var pointsForDriving = [];
 	for(var etape in points){
 		//console.log(etape);
+		var marker = L.marker([points[etape].lat, points[etape].lon]/*, { icon: defaultIcon }*/).addTo(macarte);
+		markers.push(marker);
+		latlngs.push([points[etape].lat, points[etape].lon]);
+
+		pointsForDriving.push(points[etape].lat + "," + points[etape].lon);
+		
+
+		/*
 		var marker = new google.maps.Marker({
 			map: map,
 			position: {
@@ -100,7 +133,10 @@ function initialize() {
 				"<a href='"+base_url()+"index.php/etape/listetapes/delete/"+points[etape].id+"'>Supprimer</a>"
 			})
 		});
+		*/
+
 		// ajoute le drag event sur chaque marker
+		/*
 		google.maps.event.addListener(marker, 'dragend', function() {
 			deplacerEtape(this);
 		});
@@ -108,8 +144,9 @@ function initialize() {
 		google.maps.event.addListener(marker, 'click', function() {
 			console.log(this.infoWindow)
 			this.infoWindow.open(map, this);
-		});
+		});*/
 		
+		/*
 		if(i>1){
 			obj = {
 				location:new google.maps.LatLng(points[etape].lat, points[etape].lon),
@@ -117,10 +154,54 @@ function initialize() {
 				};
 			waypoints.push( obj );
 		}
-		i++;
+		i++;*/
 	}
+	// groupe des marqueurs pour adapter le zoom
+	var group = new L.featureGroup(markers);
+	// Faire que tous les marqueurs soient visibles, et ajoutons un padding (pad(0.5)) pour que les marqueurs ne soient pas coupés
+	macarte.fitBounds(group.getBounds().pad(0.5));
+
+
+	// Récupérer en json les chemin
+	$.ajax({
+		url: "http://router.project-osrm.org/trip/v1/driving/" + 
+			pointsForDriving.join(";") + 
+			"?overview=full&geometries=polyline6",
+		type: "GET", 
+		async: false
+	}).done(function(result) { 
+		var polyline = result.trips[0].geometry;
+		//L.polyline(coordinates,{color:'blue', opacity:1}).addTo(macarte);
+/*
+		const route = new Polyline({
+			factor: 1e6,
+		  }).readGeometry(polyline, {
+			dataProjection: 'EPSG:4326',
+			featureProjection: macarte.getView().getProjection(),
+		  });
+		  const routeFeature = new Feature({
+			type: 'route',
+			geometry: route,
+		  });
+	  
+		  const vectorLayer = new VectorLayer({
+			source: new VectorSource({
+			  features: [routeFeature],
+			}),
+			style: new Style({
+			  stroke: new Stroke({
+				width: 4,
+				color: 'red',
+			  }),
+			}),
+		  });
+	  
+		  macarte.addLayer(vectorLayer);
+		  */
+	});
 	
-	
+
+	/*
 	if(depart != null){
 		var request = {
 				origin : new google.maps.LatLng(points[depart].lat, points[depart].lon),
@@ -155,8 +236,10 @@ function initialize() {
 		// ajouter une étape
 		ajouterEtape(e.latLng);
 	});
-	
+	*/
 	
 }
 
-$(window).load(initialize);
+window.onload = function(){ 
+	initialize();
+};

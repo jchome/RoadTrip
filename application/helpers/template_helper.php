@@ -30,8 +30,10 @@ if (!function_exists('jquery')) {
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script src="'.base_url().'www/js/bootstrap-typeahead.js"></script>
-<!-- GoogleMaps API -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,places"></script>
+<!-- OpenStreetMap API -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.3.0/dist/leaflet-ant-path.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/leaflet.markercluster.js" integrity="sha512-jF3LrG2wkD0aqc+Q1K09ghfuEV9+3Zv0nyRKsT88zhwY9OF3kcGem/f70gMaUzHwhMknUOyzxHeUMm8OpkMEHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 				';
 		return $htmlCode;
 	}
@@ -60,6 +62,8 @@ if (!function_exists('siteCSS')) {
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
 ';
 		return $htmlCode;
 	}
